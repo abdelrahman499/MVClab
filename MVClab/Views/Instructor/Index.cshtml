@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVClab.Models.Instructor>
+
+<h2>Instructors</h2>
+<a asp-action="AddNew" class="btn btn-outline-primary">Add New Instructor</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>SSN</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Degree</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ins in Model)
+        {
+            <tr>
+                <td>@ins.SSN</td>
+                <td>@ins.Name</td>
+                <td>@ins.Age</td>
+                <td>@ins.Degree</td>
+                <td>@ins.Salary</td>
+                <td>@ins.Department?.deptName</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@ins.SSN" class="btn btn-outline-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@ins.SSN" class="btn btn-outline-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@ins.SSN" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

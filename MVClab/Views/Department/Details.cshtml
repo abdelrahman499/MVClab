@@ -1,0 +1,25 @@
+﻿@model MVClab.Models.Department
+
+<h2>Department Details</h2>
+
+<p><strong>ID:</strong> @Model.DepartmentId</p>
+<p><strong>Name:</strong> @Model.deptName</p>
+<p><strong>Manager:</strong> @Model.Manager</p>
+
+<h3>Students</h3>
+<ul>
+    @foreach (var s in Model.Students)
+    {
+        <li>@s.Name</li>
+    }
+</ul>
+
+<h3>Instructors</h3>
+<ul>
+    @foreach (var i in Model.Instructors)
+    {
+        <li>@i.Name</li>
+    }
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

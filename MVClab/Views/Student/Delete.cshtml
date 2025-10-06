@@ -1,0 +1,11 @@
+﻿@model MVClab.Models.Student
+<div>
+    <h4>Deleting: @Model.Name</h4>
+    <p>Age: @Model.Age</p>
+    <p>Address: @Model.Address</p>
+</div>
+<form asp-action="Delete" asp-controller="Student" method="post">
+    <input type="hidden" asp-for="SSN" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

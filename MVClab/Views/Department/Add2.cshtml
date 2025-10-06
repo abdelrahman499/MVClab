@@ -1,0 +1,24 @@
+﻿@model MVClab.Models.Department
+
+<h2>Add Department (with Location check)</h2>
+
+<form asp-action="Add2" method="post">
+    <div class="form-group">
+        <label asp-for="deptName"></label>
+        <input asp-for="deptName" class="form-control" />
+        <span asp-validation-for="deptName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Manager"></label>
+        <input asp-for="Manager" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Location"></label>
+        <input asp-for="Location" class="form-control" placeholder="EG or USA" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+</form>

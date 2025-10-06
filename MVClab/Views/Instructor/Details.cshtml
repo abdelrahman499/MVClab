@@ -1,0 +1,20 @@
+﻿@model MVClab.Models.Instructor
+
+<h2>Instructor Details</h2>
+
+<p><strong>SSN:</strong> @Model.SSN</p>
+<p><strong>Name:</strong> @Model.Name</p>
+<p><strong>Age:</strong> @Model.Age</p>
+<p><strong>Degree:</strong> @Model.Degree</p>
+<p><strong>Salary:</strong> @Model.Salary</p>
+<p><strong>Department:</strong> @Model.Department?.deptName</p>
+
+<h3>Courses</h3>
+<ul>
+    @foreach (var ci in Model.CourseInstructors)
+    {
+        <li>@ci.Course?.crsName</li>
+    }
+</ul>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

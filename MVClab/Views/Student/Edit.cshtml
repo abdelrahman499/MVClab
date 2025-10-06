@@ -1,0 +1,32 @@
+﻿@model MVClab.ViewModels.StudentViewModel
+
+<form asp-action="Edit" asp-controller="Student" method="post">
+    <input type="hidden" asp-for="SSN" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="deptId"></label>
+        <input asp-for="deptId" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

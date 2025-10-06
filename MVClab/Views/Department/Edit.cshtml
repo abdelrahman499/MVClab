@@ -1,0 +1,17 @@
+﻿@model MVClab.Models.Department
+
+<h2>Edit Department</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="DepartmentId" />
+    <div class="form-group">
+        <label asp-for="deptName"></label>
+        <input asp-for="deptName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Manager"></label>
+        <input asp-for="Manager" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

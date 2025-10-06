@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MVClab.Models.Department>
+
+<h2>Departments</h2>
+<a asp-action="AddNew" class="btn btn-outline-primary">Add New Department</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Students</th>
+            <th>Instructors</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <td>@dept.DepartmentId</td>
+                <td>@dept.deptName</td>
+                <td>@dept.Manager</td>
+                <td>@dept.Students.Count</td>
+                <td>@dept.Instructors.Count</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@dept.DepartmentId" class="btn btn-outline-info">Details</a>
+                    <a asp-action="Edit" asp-route-id="@dept.DepartmentId" class="btn btn-outline-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@dept.DepartmentId" class="btn btn-outline-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

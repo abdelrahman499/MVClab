@@ -1,0 +1,9 @@
+﻿@model MVClab.Models.Department
+
+<p>Are you sure you want to delete <strong>@Model.deptName</strong>?</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="DepartmentId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

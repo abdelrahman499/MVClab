@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using MVClab.Context;
+using MVClab.Mappings;
+
 namespace MVClab
 {
     public class Program
@@ -9,6 +13,18 @@ namespace MVClab
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            builder.Services.AddAutoMapper(typeof(StudentMapping));
+
+            builder.Services.AddDbContext<CompanyContext>(options =>
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(typeof(MVClab.Filters.HandleExceptionFilter));
+            });
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -19,6 +35,7 @@ namespace MVClab
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseRouting();
 
@@ -27,7 +44,7 @@ namespace MVClab
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Student}/{action=Index}/{id?}")
                 .WithStaticAssets();
 
             app.Run();
