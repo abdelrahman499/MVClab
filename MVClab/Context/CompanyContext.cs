@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MVClab.Models;
 
 namespace MVClab.Context
 {
-    public class CompanyContext :DbContext
+    public class CompanyContext : IdentityDbContext<ApplicationUser>
     {
         public CompanyContext(DbContextOptions<CompanyContext> options):base(options) { }
         public virtual DbSet<Student> Students { get; set; }
@@ -12,10 +13,10 @@ namespace MVClab.Context
         public virtual DbSet<Instructor> Instructors { get; set; }
         public virtual DbSet<StudentCourse> StudentCourses { get; set; }
         public virtual DbSet<CourseInstructor> CourseInstructors { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server = .\\SQLNEW ; database = tantamvcdb ; trusted_connection=true ; encrypt = false");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Server = .\\SQLNEW ; database = tantamvcdb ; trusted_connection=true ; encrypt = false");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<StudentCourse>()

@@ -3,9 +3,13 @@ using MVClab.Models;
 
 namespace MVClab.Repository
 {
-    public class DepartmentRepository
+    public class DepartmentRepository : IDepartmentRepository
     {
         CompanyContext db;
+        public DepartmentRepository(CompanyContext _db)
+        {
+            db = _db;
+        }
         public void Add(Department department)
         {
             db.Add(department);

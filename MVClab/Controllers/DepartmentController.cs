@@ -9,11 +9,11 @@ namespace MVClab.Controllers
 {
     public class DepartmentController : Controller
     {
-        DepartmentRepository departmentRepository;
+        IDepartmentRepository departmentRepository;
 
-        public DepartmentController()
+        public DepartmentController(IDepartmentRepository deptRepo)
         {
-            departmentRepository = new DepartmentRepository();
+            departmentRepository = deptRepo;
         }
         public IActionResult Index()
         {

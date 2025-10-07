@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MVClab.Context;
 using MVClab.Mappings;
+using MVClab.Models;
+using MVClab.Repository;
 
 namespace MVClab
 {
@@ -23,8 +26,11 @@ namespace MVClab
                 options.Filters.Add(typeof(MVClab.Filters.HandleExceptionFilter));
             });
 
-
-
+            builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();//register
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();//register
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().
+                AddEntityFrameworkStores<CompanyContext>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -10,13 +10,13 @@ namespace MVClab.Controllers
 {
     public class StudentController : Controller
     {
-        StudentRepository studentRepository; 
-        DepartmentRepository departmentRepository;
+        IStudentRepository studentRepository; 
+        IDepartmentRepository departmentRepository;
 
-        public StudentController()
+        public StudentController(IStudentRepository studRepo, IDepartmentRepository deptRepo)
         {
-            studentRepository = new StudentRepository() ;
-            departmentRepository = new DepartmentRepository() ;
+            studentRepository = studRepo;
+            departmentRepository = deptRepo;
 
 
         }
